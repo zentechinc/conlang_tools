@@ -30,7 +30,7 @@ The first version of this tool kit will do nothing more than direct word lookups
 
 Additionally, once a language is registered, i.e. any word for the language is present in the wordlist, ***clt*** should help the user add any unknown equivalent words
 
-Translations will take place using a langFile which acts as sort of a "driver" for any arbitrary language. Absence of a langFile for a language will result in a simple translation
+Translations will take place using a langFile which acts as a sort of "driver" for any arbitrary language. Absence of a langFile for a language will result in a simple translation
 
 Contributions and ideas are welcome!
 
