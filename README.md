@@ -11,7 +11,7 @@ My goal here is to build a Command Line Interface that will take a "Natural" lan
 For example:
 
 ```shell
-clt 'dire hound' -l somelang
+> clt 'dire hound' -l somelang
 ```
 
 ...will return something to the effect...
