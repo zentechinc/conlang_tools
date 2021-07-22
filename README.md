@@ -30,7 +30,7 @@ The first version of this tool kit will do nothing more than direct word lookups
 
 A very rough version map looks something like this:
 0. beta <- WE ARE HERE!
-1. substitution - basically a multi-encoding substitution cypher library
+1. substitution - basically a multi-encoding word-valued substitution cypher tool
 2. fuzzy - still a substitution library, but with 'fuzzy' substitution logic
     * for example: 'rudy fox'. 'rudy' may not have a direct match in the encoding language, so the library should attempt a best-fit match 
 3. langFiles - a given input should be run through a target language's langFile so that an earnest semantic translation may be attempted
