@@ -4,7 +4,7 @@ I'm writing a high-fantasy book and have had trouble making new words, phrases a
 
 The solution to this seems to be building one or more "Constructed Language" (conlang) and using that language to help build convincing and feasible words 
 
-However, it keeping track of the words has become increasingly troublesome, and it is still onerous to build some of the names and phrases... hence this toolkit
+However, keeping track of the words has become increasingly troublesome, and it is still onerous to build some of the names and phrases... hence this toolkit
 
 My goal here is to build a Command Line Interface that will take a "Natural" language (like English) phrase, and translate that phrase into arbitrary conlang equivalents
 
