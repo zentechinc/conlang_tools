@@ -15,7 +15,7 @@ def ensure_langdb(con, cur):
     cur.execute('''CREATE TABLE if not exists 
         words_constructed (
             constructed_word text,
-            langauge_name text,
+            language_name text,
             translation text,
             FOREIGN KEY(language_name) REFERENCES con_languages(language_name)
         )''')

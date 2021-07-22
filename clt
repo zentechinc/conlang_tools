@@ -4,6 +4,7 @@ import sqlite3
 from tabulate import tabulate
 
 from src.database.ensure_db import ensure_langdb
+from src.database.utils import print_table_from_cursor
 from src.utils import get_arguments
 
 
@@ -18,16 +19,23 @@ def main():
 
     ensure_langdb(con, cur)
 
-    con.commit()
-    con.close()
+
 
     arguments = get_arguments()
+
+    query = 'select * from words_constructed'
+
+    cur.execute(query)
+    print_table_from_cursor(cur)
 
     print(vars(arguments))
 
     print('-------> arguments.input: {}'.format(arguments.input))
     arguments.input_split = arguments.input.split(' ')
     print('-------> arguments.input_split: {}'.format(arguments.input_split))
+
+    con.commit()
+    con.close()
 
 
 main()
