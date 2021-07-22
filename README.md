@@ -24,7 +24,6 @@ clt 'dire hound' -l somelang
 +------------+---------------+
 | somelang   | tan hari      |
 +------------+---------------+
-
 ```
 
 The first version of this tool kit do nothing more than direct word lookups and translations, but depending on my traction and motivation I would like it to be significantly more advanced such that it will parse arbitrary natural languages and render the phrase in the constructed equivalent
