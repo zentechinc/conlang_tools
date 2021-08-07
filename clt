@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import sqlite3
+import os
 from tabulate import tabulate
 
 from src.database.ensure_db import ensure_langdb
@@ -13,26 +14,19 @@ def scratch():
 
 
 def main():
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))  # This is your Project Root
     print('<------- inside: main ------->')
-    con = sqlite3.connect('langbase.sqlite')
+    con = sqlite3.connect('{path}/langbase.sqlite'.format(path=ROOT_DIR))
+    con.execute("PRAGMA foreign_keys = 1")
     cur = con.cursor()
-
-    ensure_langdb(con, cur)
-
-
-
     arguments = get_arguments()
+    ensure_langdb(con, cur)
+    arguments.term_split = arguments.term.split(' ')
 
-    query = 'select * from words_constructed'
+    query = "SELECT * FROM term_matches WHERE term IN (%s)" % ','.join('?' * len(arguments.term_split))
+    cur.execute(query, arguments.term_split)
 
-    cur.execute(query)
     print_table_from_cursor(cur)
-
-    print(vars(arguments))
-
-    print('-------> arguments.input: {}'.format(arguments.input))
-    arguments.input_split = arguments.input.split(' ')
-    print('-------> arguments.input_split: {}'.format(arguments.input_split))
 
     con.commit()
     con.close()

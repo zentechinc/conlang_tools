@@ -11,13 +11,19 @@ def get_arguments():
 
     parser.version = '1.0'
 
-    parser.add_argument('input',
-                        metavar='INPUT',
-                        help='a group of words comprising the subject to be translated')
+    parser.add_argument('term',
+                        metavar='TERM',
+                        help='a word or group of words comprising the subject to be translated')
 
     parser.add_argument('-l',
                         '--lang',
-                        help='the specific language to which the input should be translated')
+                        default='english',
+                        help='the incoming language from which the input should be translated')
+
+    parser.add_argument('-o',
+                        '--output',
+                        default='all',
+                        help='the language to which the input term should be translated')
 
     parser.add_argument('-a',
                         '--add',
