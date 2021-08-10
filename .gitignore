@@ -140,4 +140,4 @@ config/*
 .idea
 node_modules
 package-lock.json
-langbase.sqlite
+#langbase.sqlite
