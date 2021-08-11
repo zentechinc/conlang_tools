@@ -1,17 +1,17 @@
-def ensure_langdb(con, cur):
+def ensure_langdb(invoke):
     print('<------- inside: ensure_langdb ------->')
 
-    cur.execute('''CREATE TABLE if not exists 
+    invoke.cursor.execute('''CREATE TABLE if not exists 
         languages (
             language_name text PRIMARY KEY
         )''')
 
-    cur.execute('''CREATE TABLE if not exists 
+    invoke.cursor.execute('''CREATE TABLE if not exists 
             dictionary_parts (
                 part text PRIMARY KEY
             )''')
 
-    cur.execute('''CREATE TABLE if not exists 
+    invoke.cursor.execute('''CREATE TABLE if not exists 
         dictionary (
             term text,
             language text ,
@@ -23,7 +23,7 @@ def ensure_langdb(con, cur):
             FOREIGN KEY(class) REFERENCES dictionary_parts(part)
         )''')
 
-    cur.execute('''CREATE TABLE if not exists 
+    invoke.cursor.execute('''CREATE TABLE if not exists 
         term_matches (
             term text,
             language text,
@@ -37,7 +37,7 @@ def ensure_langdb(con, cur):
             FOREIGN KEY(matching_term, matching_language, class) REFERENCES dictionary(term,language, class)
         )''')
 
-    # cur.execute('''CREATE TABLE if not exists
+    # invoke.cursor.execute('''CREATE TABLE if not exists
     #     nat_to_con (
     #         nat_id integer,
     #         con_id integer,
