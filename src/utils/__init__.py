@@ -2,7 +2,7 @@ import argparse
 
 
 def get_arguments():
-    print('<------- inside: get_arguments ------->')
+    print('-------> inside: get_arguments')
     parser = argparse.ArgumentParser(
         prog='clt',
         description='a tool kit for working with conlangs',

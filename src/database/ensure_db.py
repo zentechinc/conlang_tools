@@ -1,5 +1,5 @@
 def ensure_langdb(invoke):
-    print('<------- inside: ensure_langdb ------->')
+    print('-------> inside: ensure_langbase')
 
     invoke.cursor.execute('''CREATE TABLE if not exists 
         languages (

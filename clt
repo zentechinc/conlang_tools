@@ -1,22 +1,12 @@
 #! /usr/bin/env python
 
-import sqlite3
 import os
 from tabulate import tabulate
 
 from src.database.ensure_db import ensure_langdb
-from src.database.utils import print_table_from_cursor
 from src.utils import get_arguments
-from src import match_terms
-
-
-class CommandLineInvocation:
-    def __init__(self, workingDir):
-        self.workingDir = workingDir
-        self.connection = sqlite3.connect('{path}/langbase.sqlite'.format(path=workingDir))
-        self.connection.execute("PRAGMA foreign_keys = 1")
-        self.cursor = self.connection.cursor()
-        self.closeDb = None
+from src import match_terms, map_terms_to_dictionary
+from src.utils.classes import CommandLineInvocation
 
 
 def scratch():
@@ -24,7 +14,7 @@ def scratch():
 
 
 def main():
-    print('<------- inside: main ------->')
+    print('-------> inside: main')
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))  # This is your Project Root
     invoke = CommandLineInvocation(ROOT_DIR)
 
@@ -34,6 +24,7 @@ def main():
     invoke.arguments.term_split = invoke.arguments.term.split(' ')
 
     match_terms(invoke)
+    map_terms_to_dictionary(invoke)
 
     invoke.connection.commit()
     invoke.connection.close()

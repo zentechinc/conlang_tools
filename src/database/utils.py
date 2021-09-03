@@ -11,3 +11,6 @@ def attributes_and_records_from_cursor(cursor):
 def print_table_from_cursor(cursor):
     attributes, records = attributes_and_records_from_cursor(cursor)
     print(tabulate(records, attributes, tablefmt="grid"))
+
+def print_table_from_invoke(invoke):
+    print(tabulate(invoke.mrr(), invoke.mra(), tablefmt="grid"))
